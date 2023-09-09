@@ -36,29 +36,20 @@ function setup() {
     // 初期位置と速度を設定
     x[i] = random(radius, sc_width - radius);
     y[i] = random(radius, sc_height - radius);
-    xspeed[i] = 4;
-    yspeed[i] = 4;
+    xspeed[i] = 3;
+    yspeed[i] = 3;
   }
 
-  const startButton = document.getElementById('start');
-  startButton.addEventListener('click', () => {
-    const element = document.documentElement; // 通常は <html> 要素を使用します
-
-    /*
-    if (element.requestFullscreen) {
-      element.requestFullscreen();
-    } else if (element.mozRequestFullScreen) { // Firefox向けのプレフィックス付きメソッド
-      element.mozRequestFullScreen();
-    } else if (element.webkitRequestFullscreen) { // WebKit (Chrome, Safari)向けのプレフィックス付きメソッド
-      element.webkitRequestFullscreen();
-    } else if (element.msRequestFullscreen) { // Internet Explorer向けのプレフィックス付きメソッド
-      element.msRequestFullscreen();
-    }*/
-
-    startButton.style.display = "none";
-    isDrawing = true;
-    loop(); // 描画開始
+  document.addEventListener("keydown", function(event) {
+    if (event.key === " ") {
+      startButton.style.display = "none";
+      isDrawing = true;
+      loop(); // 描画開始
+    }
   });
+  
+  const startButton = document.getElementById('start');
+
 }
 
 function draw() {
@@ -128,9 +119,9 @@ function draw() {
 
     // 画像を描画
     if (i % 2 === 0) {
-      image(eyeImage, x[i] - radius, y[i] - radius, radius * 6, radius * 6);
+      image(eyeImage, x[i] - radius, y[i] - radius, radius * 4, radius * 4);
     } else {
-      image(mouthImage, x[i] - radius, y[i] - radius, radius * 6, radius * 6);
+      image(mouthImage, x[i] - radius, y[i] - radius, radius * 4, radius * 4);
     }
   }
 }

@@ -1,0 +1,81 @@
+body {
+    margin: 0;
+  }
+  .canvas-wrap{
+      width: 600px;
+      max-width: 100%;
+      position: relative;
+      padding: 0;
+      box-sizing: content-box;
+    }
+    .canvas_warp:before{
+      content:"";
+      display: block;
+      padding-top: 50%;
+    }
+    .canvas{
+      position: absolute;
+      left:0;
+      top:0;
+      border: 0;
+      max-width:100%;
+      box-sizing: content-box;
+      padding: 0;
+      margin: 0;
+    }
+
+    #black-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: calc(100vw - calc(100vw - 100%));
+      height: 100vh;
+      background-color: black; /* ここで背景色を真っ黒に設定 */
+      z-index: 9999; /* この要素を一番前に表示するためにz-indexを設定 */
+      opacity: 0;
+    }
+
+    #flash {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: calc(100vw - calc(100vw - 100%));
+      height: 100vh;
+      background-color:darkred; /* ここで背景色を真っ黒に設定 */
+      z-index: 9995; /* この要素を一番前に表示するためにz-indexを設定 */
+      display: none;
+    }
+
+    #start {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 9990; /* この要素を一番前に表示するためにz-indexを設定 */
+    }
+
+    #title {
+      position: absolute;
+      top: 50%; /* 上下中央に配置 */
+      left: 50%; /* 左右中央に配置 */
+      transform: translate(-50%, -50%); /* 中央揃え */
+      color: white;
+      font-size: 3vw;
+    }
+
+    /* その場で */
+.fadeIn{
+    animation-name:fadeInAnime;
+    animation-duration:2s;
+    animation-fill-mode:forwards;
+    opacity:0;
+    }
+    
+    @keyframes fadeInAnime{
+      from {
+        opacity: 0;
+      }
+    
+      to {
+        opacity: 1;
+      }
+    }

@@ -6,70 +6,16 @@
     <script src="./lib/p5.min.js"></script>
     <script src="./lib/p5.sound.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <script src="main.js"></script>
     <title>Life of the earth</title>
-
-    <style>
-        body {
-          margin: 0;
-        }
-        .canvas-wrap{
-            width: 600px;
-            max-width: 100%;
-            position: relative;
-            padding: 0;
-            box-sizing: content-box;
-          }
-          .canvas_warp:before{
-            content:"";
-            display: block;
-            padding-top: 50%;
-          }
-          .canvas{
-            position: absolute;
-            left:0;
-            top:0;
-            border: 0;
-            max-width:100%;
-            box-sizing: content-box;
-            padding: 0;
-            margin: 0;
-          }
-
-          #black-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: calc(100vw - calc(100vw - 100%));
-            height: 100vh;
-            background-color: black; /* ここで背景色を真っ黒に設定 */
-            z-index: 9999; /* この要素を一番前に表示するためにz-indexを設定 */
-            display: none;
-          }
-
-          #flash {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: calc(100vw - calc(100vw - 100%));
-            height: 100vh;
-            background-color:darkred; /* ここで背景色を真っ黒に設定 */
-            z-index: 9995; /* この要素を一番前に表示するためにz-indexを設定 */
-            display: none;
-          }
-
-          #start {
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 9990; /* この要素を一番前に表示するためにz-indexを設定 */
-          }
-      </style>
 </head>
 <body>
   <div id="flash"></div>
-    <div id="black-overlay"></div>
+    <div id="black-overlay">
+      <h1 id="title">life of the earth.</h1>
+    </div>
     <button id="start">Start Drawing</button>
     <div class="canvas-wrap">
       <div class="canvas" id="canvas1"></div>
@@ -147,7 +93,9 @@ function changeRadius() {
   if (radius0 >= 0.5) {
     mesh.geometry.dispose();
     scene.remove(mesh);
-    document.getElementById("black-overlay").style.display = "block";
+    document.getElementById("black-overlay").classList.add("fadeIn");
+
+    document.getElementById("title").classList.add("fadeIn");
   } else {
     // 立方体のジオメトリを更新する
     const newGeometry = createBoxWithRoundedEdges(width, height, depth, radius0, smoothness);
