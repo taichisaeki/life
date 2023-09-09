@@ -90,7 +90,7 @@ function changeRadius() {
   // radius0 の値を0.1増加させる
   radius0 += 0.1;
 
-  if (radius0 >= 0.5) {
+  if (radius0 > 0.5) {
     mesh.geometry.dispose();
     scene.remove(mesh);
     document.getElementById("black-overlay").classList.add("fadeIn");

@@ -36,8 +36,8 @@ function setup() {
     // 初期位置と速度を設定
     x[i] = random(radius, sc_width - radius);
     y[i] = random(radius, sc_height - radius);
-    xspeed[i] = 3;
-    yspeed[i] = 3;
+    xspeed[i] = 5;
+    yspeed[i] = 5;
   }
 
   document.addEventListener("keydown", function(event) {
@@ -86,7 +86,7 @@ function draw() {
       let randomIndex = floor(random(sounds.length));
       let randomSound = sounds[randomIndex];
 
-      if(soundcount < 5) {
+      if(soundcount < 6) {
         // 選択した音声ファイルを再生
         if (randomSound.isLoaded()) {
             randomSound.play();
