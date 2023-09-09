@@ -36,8 +36,8 @@ function setup() {
     // 初期位置と速度を設定
     x[i] = random(radius, sc_width - radius);
     y[i] = random(radius, sc_height - radius);
-    xspeed[i] = 5;
-    yspeed[i] = 5;
+    xspeed[i] = 4;
+    yspeed[i] = 4;
   }
 
   const startButton = document.getElementById('start');
@@ -95,7 +95,7 @@ function draw() {
       let randomIndex = floor(random(sounds.length));
       let randomSound = sounds[randomIndex];
 
-      if(soundcount < 4) {
+      if(soundcount < 5) {
         // 選択した音声ファイルを再生
         if (randomSound.isLoaded()) {
             randomSound.play();
