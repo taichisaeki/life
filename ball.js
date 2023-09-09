@@ -123,9 +123,9 @@ function draw() {
 
     // 画像を描画
     if (i % 2 === 0) {
-      image(eyeImage, x[i] - radius, y[i] - radius, radius * 3, radius * 3);
+      image(eyeImage, x[i] - radius, y[i] - radius, radius * 0.5, radius * 0.5);
     } else {
-      image(mouthImage, x[i] - radius, y[i] - radius, radius * 3, radius * 3);
+      image(mouthImage, x[i] - radius, y[i] - radius, radius * 0.5, radius * 0.5);
     }
   }
 }
