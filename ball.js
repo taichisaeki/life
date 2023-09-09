@@ -67,7 +67,7 @@ function draw() {
   var cy = sc_height / 2;
 
   // 正方形のサイズを指定
-  var size = 150;
+  var size = 200;
 
   // 正方形を描画する
   fill(0, 0);
@@ -123,9 +123,9 @@ function draw() {
 
     // 画像を描画
     if (i % 2 === 0) {
-      image(eyeImage, x[i] - radius, y[i] - radius, radius * 0.5, radius * 0.5);
+      image(eyeImage, x[i] - radius, y[i] - radius, radius * 6, radius * 6);
     } else {
-      image(mouthImage, x[i] - radius, y[i] - radius, radius * 0.5, radius * 0.5);
+      image(mouthImage, x[i] - radius, y[i] - radius, radius * 6, radius * 6);
     }
   }
 }
