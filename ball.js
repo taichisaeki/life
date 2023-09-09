@@ -6,6 +6,8 @@ let radius = 30; // 円の半径
 let eyeImage;
 let mouthImage;
 
+let soundcount = 0;
+
 let flash = document.getElementById("flash");
 
 // 画面の幅と高さを取得する
@@ -34,8 +36,8 @@ function setup() {
     // 初期位置と速度を設定
     x[i] = random(radius, sc_width - radius);
     y[i] = random(radius, sc_height - radius);
-    xspeed[i] = random(1, 3);
-    yspeed[i] = random(1, 3);
+    xspeed[i] = 5;
+    yspeed[i] = 5;
   }
 
   const startButton = document.getElementById('start');
@@ -93,11 +95,14 @@ function draw() {
       let randomIndex = floor(random(sounds.length));
       let randomSound = sounds[randomIndex];
 
-      // 選択した音声ファイルを再生
-      if (randomSound.isLoaded()) {
-          randomSound.play();
-      } else {
-          console.log('音声ファイルがまだ読み込まれていません。');
+      if(soundcount < 4) {
+        // 選択した音声ファイルを再生
+        if (randomSound.isLoaded()) {
+            randomSound.play();
+            soundcount++;
+        } else {
+            console.log('音声ファイルがまだ読み込まれていません。');
+        }
       }
       
       changeRadius();
